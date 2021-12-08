@@ -1,0 +1,29 @@
+#%RAML 1.0
+title: Gmail
+version: 1.0
+description: "This API is used to send Gmail Receipts for Invoice and Transaction in the ABC System."
+protocols:
+  - HTTP
+/Gmail:
+  /sendGmail:
+    post:
+      description: "This API is for sending receipt Gmail for transactions and invoices."
+      body:
+        application/json:
+          type: !include Datatypes/Gmail-dataType.raml
+          example: !include example/request/post-request.json
+      responses:
+        201:
+          body:
+            application/json:
+              example: !include example/response/post-response.json
+        400:
+          description:  |
+              Bad request
+        404:
+          description:  |
+              Id not found
+            
+
+                  
+          
